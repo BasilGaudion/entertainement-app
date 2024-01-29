@@ -8,7 +8,7 @@ import Avatar from "../../public/assets/image-avatar.png";
 
 const AsideSettings = () => {
   return (
-    <aside className="h-[95%] bg-slate-700 rounded-2xl flex flex-col w-24 items-center justify-between overflow-hidden z-20">
+    <aside className="h-[95%] fixed bg-slate-700 rounded-2xl flex flex-col w-24 items-center justify-between overflow-hidden z-20">
       <div className="flex flex-col items-center">
         <div className="relative w-10 h-10 mt-8">
           <Image

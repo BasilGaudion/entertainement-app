@@ -11,7 +11,7 @@ const Home: React.FC = () => {
   const forYouData = data.filter((item) => item.isTrending === false);
 
   return (
-    <div className="w-full ml-9">
+    <div className="w-full ml-[164px]">
       <SearchBar />
       <TrendingHome data={trendingData} />
       <ForYou data={forYouData} />
