@@ -24,3 +24,6 @@ export interface RegularThumbnailI {
 export interface TrendingHomePropsI {
     data: MovieDataI[];
 };
+export interface ForYouHomePropsI {
+    data: MovieDataI[];
+};
