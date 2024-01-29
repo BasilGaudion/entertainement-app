@@ -1,12 +1,10 @@
-import { Input } from "@/components/ui/input";
 import React from "react";
+import SearchBar from "./search-bar";
 
 const Home = () => {
   return (
-    <div className=" w-full">
-      <div>
-        <Input type="text" placeholder="Search fo movies or TV series" />
-      </div>
+    <div className="w-full ml-9">
+      <SearchBar />
     </div>
   );
 };
