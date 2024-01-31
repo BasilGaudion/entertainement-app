@@ -1,4 +1,5 @@
 import { CarouselItem } from "@/components/ui/carousel";
+import { useRef } from "react";
 import {
   Card,
   CardContent,
@@ -8,6 +9,7 @@ import {
 import Image from "next/image";
 import BookMarkEmpty from "../../../public/assets/icon-bookmark-empty.svg";
 import BookMarkFull from "../../../public/assets/icon-bookmark-full.svg";
+import PlayButton from "../../../public/assets/icon-play.svg";
 import { MovieDataI } from "../../types";
 
 interface ItemCarouselProps {
@@ -15,9 +17,41 @@ interface ItemCarouselProps {
 }
 
 const ItemCarousel: React.FC<ItemCarouselProps> = ({ item }) => {
+  const ref = useRef<HTMLDivElement>(null);
+
+  const handleMouseOver = () => {
+    const playHover = ref.current;
+    if (playHover) {
+      playHover.style.display = "flex";
+    }
+  };
+
+  const handleMouseOut = () => {
+    const playHover = ref.current;
+    if (playHover) {
+      playHover.style.display = "none";
+    }
+  };
+
   return (
-    <CarouselItem className="md:basis-1/2 max-w-[470px]">
-      <div className="w-[470px] h-[229px] mt-6" key={item.title}>
+    <CarouselItem className="md:basis-1/2 max-w-[470px] cursor-pointer">
+      <div
+        className="w-[470px] h-[229px] mt-6 relative"
+        key={item.title}
+        onMouseOver={handleMouseOver}
+        onMouseOut={handleMouseOut}
+      >
+        <div
+          className="w-[470px] h-[230px] opacity-50 bg-black absolute top-2/4 left-2/4 -translate-y-1/2 -translate-x-1/2 z-10 flex items-center justify-center"
+          ref={ref}
+          style={{ display: "none", position: "absolute" }}
+        >
+          {/* TODO gerer l'affichagfe de l'image qui est en conflit avec le bg white ou l'opacity */}
+          <div className="bg-white flex items-center justify-center w-[117px] h-12 rounded-full">
+            <Image src={PlayButton} alt="play-button" width={30} height={30} />
+            <span className="font-body text-lg ml-2">Play</span>
+          </div>
+        </div>
         <div className="w-[470px] h-[229px] relative">
           <Image
             src={item.thumbnail.trending!.large}
