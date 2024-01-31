@@ -8,7 +8,7 @@ const ForYou: React.FC<ForYouHomePropsI> = ({ data }) => {
       <div>
         <h1 className="text-white font-body text-4xl">Recommended for you</h1>
       </div>
-      <div className="mt-8 flex flex-wrap gap-20">
+      <div className="mt-8 flex flex-wrap gap-20 h-[700px]">
         {data.map((item, key) => (
           <Card
             key={key}
