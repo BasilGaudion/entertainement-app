@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect } from "react";
-import SearchBar from "./search-bar";
+import SearchBar from "../../../components/search-bar";
 import TrendingHome from "./trending";
 import data from "../../../data.json";
 import ForYou from "./for-you";
@@ -12,7 +12,7 @@ const Home: React.FC = () => {
 
   return (
     <div className="w-full ml-[164px]">
-      <SearchBar />
+      <SearchBar placeholder="Search for movies or TV series" />
       <TrendingHome data={trendingData} />
       <ForYou data={forYouData} />
     </div>
