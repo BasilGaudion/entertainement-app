@@ -11,9 +11,9 @@ const Home: React.FC = () => {
   const forYouData = data.filter((item) => item.isTrending === false);
 
   return (
-    <div className="w-full ml-[164px] p-0 overflow-auto">
+    <div className="w-full ml-[164px] p-0">
       <SearchBar placeholder="Search for movies or TV series" />
-      {/* <TrendingHome data={trendingData} /> */}
+      <TrendingHome data={trendingData} />
       <ForYou data={forYouData} />
     </div>
   );

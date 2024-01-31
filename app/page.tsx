@@ -11,7 +11,7 @@ export default function Home() {
     window.location.href = "/home";
   };
   return (
-    <main className="w-screen h-screen flex items-center justify-center">
+    <main className="h-screen flex items-center justify-center">
       <Card>
         <CardHeader>Home</CardHeader>
         <CardContent>
