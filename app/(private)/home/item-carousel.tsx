@@ -64,7 +64,7 @@ const ItemCarousel: React.FC<ItemCarouselProps> = ({ item }) => {
             <CardHeader className="z-10 flex justify-end items-end">
               <span className="w-8 h-8 flex justify-center items-center rounded-full bg-black opacity-50">
                 <Image
-                  src={BookMarkEmpty}
+                  src={item.isBookmarked ? BookMarkFull : BookMarkEmpty}
                   alt="bookmark"
                   width={15}
                   height={15}
