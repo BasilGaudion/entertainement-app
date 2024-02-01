@@ -15,14 +15,18 @@ import BookMarkLogoRed from "../../public/assets/icon-nav-bookmark-red.svg";
 import Avatar from "../../public/assets/image-avatar.png";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { useStoreSearch } from "../store/searchStore";
+import { set } from "lodash";
 
 const AsideSettings = () => {
   const [currentLogo, setCurrentLogo] = useState("HomeLogo");
+  const setSearch = useStoreSearch((state) => state.setSearch);
   const router = useRouter();
 
   const handleNavigate = (location: string) => {
     return () => {
       router.push(`/${location}`);
+      setSearch("");
       // TODO Gerer le changement de logo en fonction de l'url de la page
       location === "home" && setCurrentLogo("HomeLogo");
       location === "movies" && setCurrentLogo("MoviesIcon");
