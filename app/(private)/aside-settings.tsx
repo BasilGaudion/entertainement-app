@@ -13,10 +13,24 @@ import BookMarkLogo from "../../public/assets/icon-nav-bookmark.svg";
 import BookMarkLogoWhite from "../../public/assets/icon-nav-bookmark-white.svg";
 import BookMarkLogoRed from "../../public/assets/icon-nav-bookmark-red.svg";
 import Avatar from "../../public/assets/image-avatar.png";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 const AsideSettings = () => {
   const [currentLogo, setCurrentLogo] = useState("HomeLogo");
+  const router = useRouter();
+
+  const handleNavigate = (location: string) => {
+    return () => {
+      router.push(`/${location}`);
+      // TODO Gerer le changement de logo en fonction de l'url de la page
+      location === "home" && setCurrentLogo("HomeLogo");
+      location === "movies" && setCurrentLogo("MoviesIcon");
+      location === "tv-series" && setCurrentLogo("SeriesLogo");
+      location === "bookmarked" && setCurrentLogo("BookMarkLogo");
+    };
+  };
+
   return (
     <aside className="h-[95%] fixed bg-slate-700 rounded-2xl flex flex-col w-24 items-center justify-between z-20 ml-8">
       <div className="flex flex-col items-center">
@@ -35,21 +49,24 @@ const AsideSettings = () => {
             alt="home"
             width={20}
             height={20}
-            className="my-2"
+            className="my-2 cursor-pointer"
+            onClick={handleNavigate("home")}
           />
           <Image
             src={currentLogo === "MoviesIcon" ? MoviesIconWhite : MoviesIcon}
             alt="movies"
             width={20}
             height={20}
-            className="my-2"
+            className="my-2 cursor-pointer"
+            onClick={handleNavigate("movies")}
           />
           <Image
             src={currentLogo === "SeriesLogo" ? SeriesLogoWhite : SeriesLogo}
             alt="series"
             width={20}
             height={20}
-            className="my-2"
+            className="my-2 cursor-pointer"
+            onClick={handleNavigate("tv-series")}
           />
           <Image
             src={
@@ -58,7 +75,8 @@ const AsideSettings = () => {
             alt="bookmark"
             width={20}
             height={20}
-            className="my-2"
+            className="my-2 cursor-pointer"
+            onClick={handleNavigate("bookmarked")}
           />
         </div>
       </div>

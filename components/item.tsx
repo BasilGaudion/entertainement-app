@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { Card, CardContent, CardFooter } from "./ui/card";
 import { MovieDataI } from "../app/types";
+import IconCategoryMovie from "../public/assets/icon-category-movie.svg";
+import IconCategoryTv from "../public/assets/icon-category-tv.svg";
 
 interface ItemCarouselProps {
   item: MovieDataI;
@@ -17,10 +19,17 @@ const Item: React.FC<ItemCarouselProps> = ({ item }) => {
         className="rounded-lg"
       />
       <CardContent
-        className="text-white font-body opacity-75 text-sm mt-2
+        className="text-white font-body opacity-75 text-sm mt-2 flex items-center gap-1
             "
       >
-        {item.year} &middot; {item.category} &middot; {item.rating}
+        {item.year} &middot;
+        <Image
+          src={item.category === "Movie" ? IconCategoryMovie : IconCategoryTv}
+          alt=""
+          width={12}
+          height={12}
+        />
+        {item.category} &middot; {item.rating}
       </CardContent>
       <CardFooter className="text-white font-body text-lg">
         {item.title}
