@@ -1,12 +1,22 @@
 import Image from "next/image";
 import Logo from "../../public/assets/logo.svg";
 import HomeLogo from "../../public/assets/icon-nav-home.svg";
+import HomeLogoWhite from "../../public/assets/icon-nav-home-white.svg";
+import HomeLogoRed from "../../public/assets/icon-nav-home-red.svg";
 import MoviesIcon from "../../public/assets/icon-nav-movies.svg";
+import MoviesIconWhite from "../../public/assets/icon-nav-movies-white.svg";
+import MoviesIconRed from "../../public/assets/icon-nav-movies-red.svg";
 import SeriesLogo from "../../public/assets/icon-nav-tv-series.svg";
+import SeriesLogoWhite from "../../public/assets/icon-nav-tv-series-white.svg";
+import SeriesLogoRed from "../../public/assets/icon-nav-tv-series-red.svg";
 import BookMarkLogo from "../../public/assets/icon-nav-bookmark.svg";
+import BookMarkLogoWhite from "../../public/assets/icon-nav-bookmark-white.svg";
+import BookMarkLogoRed from "../../public/assets/icon-nav-bookmark-red.svg";
 import Avatar from "../../public/assets/image-avatar.png";
+import { useState } from "react";
 
 const AsideSettings = () => {
+  const [currentLogo, setCurrentLogo] = useState("HomeLogo");
   return (
     <aside className="h-[95%] fixed bg-slate-700 rounded-2xl flex flex-col w-24 items-center justify-between z-20 ml-8">
       <div className="flex flex-col items-center">
@@ -21,28 +31,30 @@ const AsideSettings = () => {
         </div>
         <div className="flex flex-col gap-3 mt-14">
           <Image
-            src={HomeLogo}
+            src={currentLogo === "HomeLogo" ? HomeLogoWhite : HomeLogo}
             alt="home"
             width={20}
             height={20}
             className="my-2"
           />
           <Image
-            src={MoviesIcon}
+            src={currentLogo === "MoviesIcon" ? MoviesIconWhite : MoviesIcon}
             alt="movies"
             width={20}
             height={20}
             className="my-2"
           />
           <Image
-            src={SeriesLogo}
+            src={currentLogo === "SeriesLogo" ? SeriesLogoWhite : SeriesLogo}
             alt="series"
             width={20}
             height={20}
             className="my-2"
           />
           <Image
-            src={BookMarkLogo}
+            src={
+              currentLogo === "BookMarkLogo" ? BookMarkLogoWhite : BookMarkLogo
+            }
             alt="bookmark"
             width={20}
             height={20}
