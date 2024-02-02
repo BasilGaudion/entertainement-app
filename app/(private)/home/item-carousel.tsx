@@ -34,7 +34,7 @@ const ItemCarousel: React.FC<ItemCarouselProps> = ({ item }) => {
   };
 
   return (
-    <CarouselItem className="md:basis-1/2 max-w-[470px] cursor-pointer">
+    <CarouselItem className="md:basis-1/2 max-w-[470px] cursor-pointer bg-slate-950">
       <div
         className="w-[470px] h-[229px] mt-6 relative"
         key={item.title}
@@ -42,14 +42,20 @@ const ItemCarousel: React.FC<ItemCarouselProps> = ({ item }) => {
         onMouseOut={handleMouseOut}
       >
         <div
-          className="w-[470px] h-[230px] opacity-50 bg-black absolute top-2/4 left-2/4 -translate-y-1/2 -translate-x-1/2 z-10 flex items-center justify-center"
+          className="w-[470px] h-[230px] bg-opacity-50 bg-black z-20 flex items-center justify-center relative"
           ref={ref}
           style={{ display: "none", position: "absolute" }}
         >
           {/* TODO gerer l'affichagfe de l'image qui est en conflit avec le bg white ou l'opacity */}
-          <div className="bg-white flex items-center justify-center w-[117px] h-12 rounded-full">
-            <Image src={PlayButton} alt="play-button" width={30} height={30} />
-            <span className="font-body text-lg ml-2">Play</span>
+          <div className="bg-white bg-opacity-25 gap-3 flex items-center justify-center w-[117px] h-12 rounded-full z-10 absolute top-2/4 left-2/4 -translate-y-1/2 -translate-x-1/2">
+            <Image
+              src={PlayButton}
+              alt="play-button"
+              width={30}
+              height={30}
+              className="z-20"
+            />
+            <span className="font-body text-lg ml-2 z-10 text-white">Play</span>
           </div>
         </div>
         <div className="w-[470px] h-[229px] relative">
